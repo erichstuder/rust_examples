@@ -7,7 +7,7 @@ mod tasks;
 fn main() {
     println!("\n***rust examples***\n");
 
-    let /*mut*/ text: String = String::from("Hello, world!");
+    let text: String = String::from("Hello, world!");
     my_print(text);
     //my_print(text);
 
@@ -21,7 +21,7 @@ fn main() {
 }
 
 // Note: No forward declaration is needed like for example in C.
-// #[allow(unused)] suppresses the warning for unused function. Normally, this is not needed.
+// #[allow(unused)] suppresses the warning for unused function.
 #[allow(unused)]
 fn my_print(text: String) {
     println!("{}", text);
@@ -35,6 +35,6 @@ fn my_print_ref(text: &String) {
 
 #[allow(unused)]
 fn my_print_mut_ref(text: &mut String) {
-    text.push_str("\n");
+    text.push_str("_123");
     println!("{}", text);
 }
