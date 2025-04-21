@@ -3,11 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        USER: ${USER}
+        UID: ${UID}
     volumes:
       - .:/home/${USER}/rust_examples
     working_dir: /home/${USER}/rust_examples
-    # prevent vs code warning by marking repositories as safe and open a shell
-    command: sh -c "git config --global --add safe.directory /home/${USER}/rust_examples && /bin/bash"
     stdin_open: true
     tty: true
     stop_grace_period: 0s

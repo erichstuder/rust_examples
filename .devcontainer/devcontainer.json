@@ -2,7 +2,7 @@
     "name": "rust_examples",
     "dockerComposeFile": "${localWorkspaceFolder}/docker-compose.yml",
     "service": "main",
-    "workspaceFolder": "/home/${localEnv:USER}/.",
+    "workspaceFolder": "/home/${localEnv:USER}/rust_examples",
     "customizations": {
         "vscode": {
             "settings": {
