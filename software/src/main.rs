@@ -8,25 +8,19 @@ mod enums;
 fn main() {
     println!("\n*** rust examples ***\n");
 
+    // *** move ***
     #[allow(unused)]
     let text: String = String::from("Hello, world!");
-
-    my_print(text);
+    //
     // my_print(text);
-
+    // my_print(text);
+    //
     // my_print_ref(&text);
-    //my_print_ref(&text);
+    // my_print_ref(&text);
 
-    //my_print_mut_ref(&mut text);
-    //my_print_mut_ref(&mut text);
-
-    //tasks::run();
-
-    // let data = [1, 2, 3, 4, 5, 6];
-    // // let data: [u8; 10];
-    // print_slice(&data);
-
-
+    // *** enums ***
+    //
+    // example 1
     // let option = enums::maybe_get_a_value(true);
     // if option.is_some() {
     //     println!("there is some with {}", option.unwrap());
@@ -35,11 +29,32 @@ fn main() {
     // if enums::maybe_get_a_value(false).is_none() {
     //     println!("there is none!")
     // }
+    //
+    // example 2
+    println!("{:?}", enums::check_value(-5));
+    println!("{:?}", enums::check_value(42));
+    println!("{:?}", enums::check_value(999));
+    println!("");
 
+    let result = enums::check_value(999);
+    if result.is_err() {
+        let err = result.unwrap_err();
 
-    // println!("{:?}", enums::check_value(-5));
-    // println!("{:?}", enums::check_value(42));
-    // println!("{:?}", enums::check_value(999));
+        if let enums::MyErrors::Temperature { temperature, too_high } = err {
+            if too_high {
+                println!("Temperature is too high!");
+            }
+            println!("Temperature: {} Kelvin", temperature);
+        }
+    }
+
+    // *** tasks (optional) ***
+    // tasks::run();
+
+    // *** slices (optional) ***
+    // let data = [1, 2, 3, 4, 5, 6];
+    // // let data: [u8; 10];
+    // print_slice(&data);
 }
 
 // Note: No forward declaration is needed like for example in C.
