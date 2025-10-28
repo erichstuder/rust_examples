@@ -12,7 +12,7 @@ fn main() {
     #[allow(unused)]
     let text: String = String::from("Hello, world!");
     //
-    // my_print(text);
+    my_print(text);
     // my_print(text);
     //
     // my_print_ref(&text);
@@ -31,22 +31,22 @@ fn main() {
     // }
     //
     // example 2
-    println!("{:?}", enums::check_value(-5));
-    println!("{:?}", enums::check_value(42));
-    println!("{:?}", enums::check_value(999));
-    println!("");
+    // println!("{:?}", enums::check_value(-5));
+    // println!("{:?}", enums::check_value(42));
+    // println!("{:?}", enums::check_value(999));
+    // println!("");
 
-    let result = enums::check_value(999);
-    if result.is_err() {
-        let err = result.unwrap_err();
+    // let result = enums::check_value(999);
+    // if result.is_err() {
+    //     let err = result.unwrap_err();
 
-        if let enums::MyErrors::Temperature { temperature, too_high } = err {
-            if too_high {
-                println!("Temperature is too high!");
-            }
-            println!("Temperature: {} Kelvin", temperature);
-        }
-    }
+    //     if let enums::MyErrors::Temperature { temperature, too_high } = err {
+    //         if too_high {
+    //             println!("Temperature is too high!");
+    //         }
+    //         println!("Temperature: {} Kelvin", temperature);
+    //     }
+    // }
 
     // *** tasks (optional) ***
     // tasks::run();
