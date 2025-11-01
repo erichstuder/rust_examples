@@ -28,9 +28,9 @@ enum MyOption<T> {
 
 
 #[allow(unused)]
-pub fn check_value(value: i64) -> Result<(), MyErrors> {
+pub fn check_value(value: i64) -> Result<i16, MyErrors> {
     match value {
-        ..0 => Ok(()),
+        ..0 => Ok(-42),
 
         0..=100 => Err(MyErrors::Voltage(5.6321)),
 
