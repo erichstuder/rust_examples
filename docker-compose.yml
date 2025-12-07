@@ -8,7 +8,10 @@ services:
         UID: ${UID}
     volumes:
       - .:/home/${USER}/rust_examples
+      - /media/${USER}:/media/${USER}
+      - /dev/bus/usb:/dev/bus/usb
     working_dir: /home/${USER}/rust_examples
     stdin_open: true
     tty: true
+    privileged: true
     stop_grace_period: 0s
