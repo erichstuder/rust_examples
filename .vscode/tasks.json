@@ -15,6 +15,21 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "label": "stm32g474re_example_build",
+            "type": "shell",
+            "command": "cd stm32g474re_example && cargo build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
         }
     ]
 }

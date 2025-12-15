@@ -17,6 +17,11 @@ RUN cargo init
 COPY ./stm32f446re_example/Cargo.toml .
 RUN cargo fetch
 
+WORKDIR /home/$USER/dependencies_fetch_project/dummy/stm32g474re_example
+RUN cargo init
+COPY ./stm32g474re_example/Cargo.toml .
+RUN cargo fetch
+
 WORKDIR /home/$USER/dependencies_fetch_project/dummy/std_example
 RUN cargo init
 COPY ./std_example/Cargo.toml .
