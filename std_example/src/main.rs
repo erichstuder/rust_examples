@@ -9,18 +9,37 @@ fn main() {
     println!("\n*** rust examples ***\n");
 
     // *** move ***
-    #[allow(unused)]
     let text: String = String::from("Hello, world!");
-    //
+
+    fn my_print(text: String) {
+        println!("{}", text);
+    }
+
     my_print(text);
     // my_print(text);
-    //
+
+
+    // fn my_print_ref(text: &String) {
+    //     // text.push_str("_123");
+    //     println!("{}", text);
+    // }
+
     // my_print_ref(&text);
     // my_print_ref(&text);
 
+
+    // fn my_print_mut_ref(text: &mut String) {
+    //     text.push_str("_123");
+    //     println!("{}", text);
+    // }
+
+    // my_print_mut_ref(&mut text);
+    // my_print_mut_ref(&mut text);
+
+
     // *** enums ***
-    //
-    // example 1
+
+    // example 1: Option
     // let option = enums::maybe_get_a_value(true);
     // if option.is_some() {
     //     println!("there is some with {}", option.unwrap());
@@ -29,8 +48,8 @@ fn main() {
     // if enums::maybe_get_a_value(false).is_none() {
     //     println!("there is none!")
     // }
-    //
-    // example 2
+
+    // example 2: Result
     // println!("{:?}", enums::check_value(-5));
     // println!("{:?}", enums::check_value(42));
     // println!("{:?}", enums::check_value(999));
@@ -48,6 +67,18 @@ fn main() {
     //     }
     // }
 
+    // example 3: propagating errors with the `?` operator
+    // No need to check explicitly for errors. The `?` operator will return the error if there is one.
+    // fn check_and_propagate_error(value: i64) -> Result<(), enums::MyErrors> {
+    //     let result = enums::check_value(value)?;
+    //     println!("Result: {}", result);
+    //     Ok(())
+    // }
+
+    // check_and_propagate_error(999).unwrap_or_else(|err| {
+    //     println!("Error: {:?}", err);
+    // });
+
     // *** tasks (optional) ***
     // tasks::run();
 
@@ -57,24 +88,6 @@ fn main() {
     // print_slice(&data);
 }
 
-// Note: No forward declaration is needed like for example in C.
-// #[allow(unused)] suppresses the warning for unused function.
-#[allow(unused)]
-fn my_print(text: String) {
-    println!("{}", text);
-}
-
-#[allow(unused)]
-fn my_print_ref(text: &String) {
-    //text.push_str("\n");
-    println!("{}", text);
-}
-
-#[allow(unused)]
-fn my_print_mut_ref(text: &mut String) {
-    text.push_str("_123");
-    println!("{}", text);
-}
 
 #[allow(unused)]
 fn print_slice(slice: &[u8]) {
