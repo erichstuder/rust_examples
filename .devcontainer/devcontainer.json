@@ -1,29 +1,25 @@
 {
     "name": "rust_examples",
-    "dockerComposeFile": "${localWorkspaceFolder}/docker-compose.yml",
-    "service": "main",
-    "workspaceFolder": "/home/${localEnv:USER}/rust_examples",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "runArgs": [
+        "--privileged",
+        "-v", "/media/${localEnv:USER}:/media/vscode"
+    ],
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash",
                 "rust-analyzer.check.allTargets": false,
                 "rust-analyzer.inlayHints.typeHints.enable": false,
-                "rust-analyzer.inlayHints.parameterHints.enable": false,
-                "editor.semanticTokenColorCustomizations": {
-                    "enabled": true,
-                    "rules": {
-                        "*.mutable": {
-                            "underline": false
-                        }
-                    }
-                }
+                "rust-analyzer.inlayHints.parameterHints.enable": false
             },
             "extensions": [
                 "rust-lang.rust-analyzer",
                 "fill-labs.dependi",
                 "tamasfe.even-better-toml",
-                "ms-azuretools.vscode-docker",
+                "ms-azuretools.vscode-containers",
                 "ybaumes.highlight-trailing-white-spaces",
                 "probe-rs.probe-rs-debugger"
             ]
